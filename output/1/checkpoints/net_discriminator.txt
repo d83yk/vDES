@@ -1,0 +1,30 @@
+[Sequential(
+  (0): Conv2d(1, 64, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))
+  (down0): Sequential(
+    (0): LeakyReLU(negative_slope=0.2, inplace=True)
+    (1): Conv2d(64, 128, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))
+    (2): InstanceNorm2d(128, eps=1e-08, momentum=0.1, affine=False, track_running_stats=False)
+  )
+  (down1): Sequential(
+    (0): LeakyReLU(negative_slope=0.2, inplace=True)
+    (1): Conv2d(128, 256, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))
+    (2): InstanceNorm2d(256, eps=1e-08, momentum=0.1, affine=False, track_running_stats=False)
+  )
+  (down2): Sequential(
+    (0): LeakyReLU(negative_slope=0.2, inplace=True)
+    (1): Conv2d(256, 512, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))
+    (2): InstanceNorm2d(512, eps=1e-08, momentum=0.1, affine=False, track_running_stats=False)
+  )
+), SimpleD(
+  (decoder): Sequential(
+    (0): BlurPool(
+      (pad): ZeroPad2d((2, 2, 2, 2))
+    )
+    (1): Conv2d(512, 256, kernel_size=(3, 3), stride=(2, 2))
+    (2): LeakyReLU(negative_slope=0.2, inplace=True)
+    (3): Flatten(start_dim=1, end_dim=-1)
+    (4): Linear(in_features=262144, out_features=256, bias=True)
+    (5): LeakyReLU(negative_slope=0.2, inplace=True)
+  )
+  (out): Linear(in_features=256, out_features=1, bias=True)
+)]

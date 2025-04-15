@@ -1,0 +1,86 @@
+Unet8(
+  (model): Sequential(
+    (0): Sequential(
+      (0): Conv2d(1, 64, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))
+    )
+    (1): Sequential(
+      (0): LeakyReLU(negative_slope=0.2, inplace=True)
+      (1): Conv2d(64, 128, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))
+      (2): InstanceNorm2d(128, eps=1e-08, momentum=0.1, affine=False, track_running_stats=False)
+    )
+    (2): Sequential(
+      (0): LeakyReLU(negative_slope=0.2, inplace=True)
+      (1): Conv2d(128, 256, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))
+      (2): InstanceNorm2d(256, eps=1e-08, momentum=0.1, affine=False, track_running_stats=False)
+    )
+    (3): Sequential(
+      (0): LeakyReLU(negative_slope=0.2, inplace=True)
+      (1): Conv2d(256, 512, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))
+      (2): InstanceNorm2d(512, eps=1e-08, momentum=0.1, affine=False, track_running_stats=False)
+    )
+    (4): Sequential(
+      (0): LeakyReLU(negative_slope=0.2, inplace=True)
+      (1): Conv2d(512, 512, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))
+      (2): InstanceNorm2d(512, eps=1e-08, momentum=0.1, affine=False, track_running_stats=False)
+    )
+    (5): Sequential(
+      (0): LeakyReLU(negative_slope=0.2, inplace=True)
+      (1): Conv2d(512, 512, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))
+      (2): InstanceNorm2d(512, eps=1e-08, momentum=0.1, affine=False, track_running_stats=False)
+    )
+    (6): Sequential(
+      (0): LeakyReLU(negative_slope=0.2, inplace=True)
+      (1): Conv2d(512, 512, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))
+      (2): InstanceNorm2d(512, eps=1e-08, momentum=0.1, affine=False, track_running_stats=False)
+    )
+    (7): Sequential(
+      (0): LeakyReLU(negative_slope=0.2, inplace=True)
+      (1): Conv2d(512, 512, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))
+      (2): ReLU(inplace=True)
+      (3): ConvTranspose2d(512, 512, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))
+      (4): InstanceNorm2d(512, eps=1e-08, momentum=0.1, affine=False, track_running_stats=False)
+      (5): Identity()
+    )
+    (8): Sequential(
+      (0): ReLU(inplace=True)
+      (1): ConvTranspose2d(1024, 512, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))
+      (2): InstanceNorm2d(512, eps=1e-08, momentum=0.1, affine=False, track_running_stats=False)
+      (3): MyDropout()
+    )
+    (9): Sequential(
+      (0): ReLU(inplace=True)
+      (1): ConvTranspose2d(1024, 512, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))
+      (2): InstanceNorm2d(512, eps=1e-08, momentum=0.1, affine=False, track_running_stats=False)
+      (3): MyDropout()
+    )
+    (10): Sequential(
+      (0): ReLU(inplace=True)
+      (1): ConvTranspose2d(1024, 512, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))
+      (2): InstanceNorm2d(512, eps=1e-08, momentum=0.1, affine=False, track_running_stats=False)
+      (3): MyDropout()
+    )
+    (11): Sequential(
+      (0): ReLU(inplace=True)
+      (1): ConvTranspose2d(1024, 256, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))
+      (2): InstanceNorm2d(256, eps=1e-08, momentum=0.1, affine=False, track_running_stats=False)
+      (3): Identity()
+    )
+    (12): Sequential(
+      (0): ReLU(inplace=True)
+      (1): ConvTranspose2d(512, 128, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))
+      (2): InstanceNorm2d(128, eps=1e-08, momentum=0.1, affine=False, track_running_stats=False)
+      (3): Identity()
+    )
+    (13): Sequential(
+      (0): ReLU(inplace=True)
+      (1): ConvTranspose2d(256, 64, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))
+      (2): InstanceNorm2d(64, eps=1e-08, momentum=0.1, affine=False, track_running_stats=False)
+      (3): Identity()
+    )
+    (14): Sequential(
+      (0): ReLU(inplace=True)
+      (1): ConvTranspose2d(128, 1, kernel_size=(4, 4), stride=(2, 2), padding=(1, 1))
+      (2): Tanh()
+    )
+  )
+)
