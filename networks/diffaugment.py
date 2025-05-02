@@ -1,6 +1,9 @@
 # Differentiable Augmentation for Data-Efficient GAN Training
 # Shengyu Zhao, Zhijian Liu, Ji Lin, Jun-Yan Zhu, and Song Han
 # https://arxiv.org/pdf/2006.10738
+# Add rand_cutout_th_pmax, rand_windowing by Yasuyuki Ueda
+
+
 from functools import partial
 from torch import nn
 import torch
